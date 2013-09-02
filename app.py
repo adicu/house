@@ -15,34 +15,27 @@ TIMEOUT_MINUTES = 30
 
 @app.route('/be_quiet', methods=['POST'])
 def send_groupme():
-    last_text = DT.datetime.strptime(request.cookies.get('last_text'))
-    now = DT.datetime.today()
 
-    diff =  now - last_text
-    if diff.seconds/60 < TIMEOUT_MINUTES:
-        return 'Sorry, you must wait {} minutes before sending another text', 403
-
+    data = JSON.loads(request.data)
+    print data
 
     url = 'https://api.groupme.com/v3/bots/post'
     payload = {
         'bot_id' : GROUPME_BOT_ID,
-        'text' : 'go the sleep',
+        'text' : 'Quiet Bot: ' + data['message'],
         'token' : GROUPME_TOKEN
     }
     headers = {
         'Content-Type' : 'Application/json'
     }
-    #resp = requests.post(url, data=(JSON.dumps(payload)), headers=headers)
+    resp = requests.post(url, data=(JSON.dumps(payload)), headers=headers)
     print url, payload, headers
 
-
-    #if resp.status_code == 201:
-    if True:
-        response = make_response()
-        response.set_cookie('last_text', DT.datetime.today().utcnow())
-        return response
+    if resp.status_code == 201:
+        return JSON.dumps({'message': 'GroupMe texted: "'+data['message']+'"'}), 200
     else:
-        return 'Error posting message to GroupMe', 501
+        return JSON.dumps({'message': 'Error posting message to GroupMe'}), 501
+
 
 @app.route('/')
 def main():

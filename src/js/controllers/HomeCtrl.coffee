@@ -1,5 +1,5 @@
 angular.module('app.controllers')
-.controller 'HomeCtrl', ($scope) ->
+.controller 'HomeCtrl', ($scope, $http) ->
 	$scope.actionCalled = false
 
 	$scope.message = "Please be quiet."
@@ -7,8 +7,8 @@ angular.module('app.controllers')
 	$scope.sendText = () ->
 		data = message : $scope.message
 		$http.post('/be_quiet', data)
-			.sucess (data) ->
-				console.log data
+			.success (data) ->
+				$scope.successMessage = data.message
 			.error (err) ->
-				console.log err
+				$scope.errorMessage = err.message
 
