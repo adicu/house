@@ -4,4 +4,5 @@ MarkupSafe==0.18
 Werkzeug==0.9.4
 itsdangerous==0.23
 requests==1.2.3
+simplejson==3.3.0
 wsgiref==0.1.2

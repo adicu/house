@@ -23,7 +23,6 @@ def send_groupme():
     }
 
     resp = requests.post(url, data=(JSON.dumps(payload)), headers=headers)
-
     print resp
 
 
