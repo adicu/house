@@ -10,3 +10,5 @@ config/settings.sh
 node_modules/
 static/js
 
+log.db
+
