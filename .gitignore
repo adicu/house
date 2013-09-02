@@ -8,5 +8,5 @@ lib
 config/settings.sh
 
 node_modules/
-static/js/
+static/js
 
