@@ -32,7 +32,7 @@ module.exports = (grunt) ->
           sourceMap: 'static/js/app.min.js.map'
           sourceMapIn: 'static/js/app.js.map'
           sourceMapRoot: '/js'
-          sourceMappingURL: '/js/app.min.js.map'
+          sourceMappingURL: 'app.min.js.map'
 
     watch:
       scripts:

@@ -6,8 +6,8 @@ import requests
 
 app = Flask(__name__)
 app.debug = True
-GROUPME_TOKEN = environ('GROUPME_TOKEN')
-GROUPME_BOT_ID = environ('GROUPME_BOT_ID')
+GROUPME_TOKEN = environ.get('GROUPME_TOKEN')
+GROUPME_BOT_ID = environ.get('GROUPME_BOT_ID')
 
 
 @app.route('/be_quiet', methods=['POST'])
