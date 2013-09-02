@@ -7,3 +7,6 @@ lib
 #secrets
 config/settings.sh
 
+node_modules/
+static/js/
+

@@ -1,5 +1,0 @@
-
-function Home ($scope, $http) {
-
-}
-

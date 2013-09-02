@@ -1,0 +1,12 @@
+{
+  "name": "quiet_bot",
+  "version": "0.1.0",
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-ngmin": "0.0.3",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+}
