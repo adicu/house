@@ -9,16 +9,21 @@
                 <button
                     type="button"
                     class="btn btn-primary btn-lg"
-                    ng-click="actionCalled = true">
+                    ng-click="actionCalled = true"
+                    ng-disabled="actionCalled">
                         Get Some Quiet
                 </button>
             </div>
         </div>
         <div ng-show="actionCalled">
-            <form role="form">
+            <form role="form" ng-submit="sendText()">
               <div class="form-group">
                 <label for="exampleInputEmail1">Message</label>
-                <textarea class="form-control" placeholder="" rows="3" />
+                <textarea
+                    class="form-control"
+                    ng-model="message"
+                    placeholder=""
+                    rows="3" />
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
             </form>
