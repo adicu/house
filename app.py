@@ -10,6 +10,7 @@ app.debug = True
 GROUPME_TOKEN = environ.get('GROUPME_TOKEN')
 GROUPME_BOT_ID = environ.get('GROUPME_BOT_ID')
 
+app.LAST_TEXT = None
 TIMEOUT_MINUTES = 30
 
 
@@ -17,7 +18,15 @@ TIMEOUT_MINUTES = 30
 def send_groupme():
 
     data = JSON.loads(request.data)
-    print data
+
+    now = DT.datetime.today()
+    if app.LAST_TEXT:
+        diff = now - app.LAST_TEXT
+        if diff.seconds/60 < TIMEOUT_MINUTES:
+            return JSON.dumps({
+                'message':'Sorry, someone else has used this in the past half hour'
+            }), 403
+
 
     url = 'https://api.groupme.com/v3/bots/post'
     payload = {
@@ -28,13 +37,10 @@ def send_groupme():
     headers = {
         'Content-Type' : 'Application/json'
     }
-    resp = requests.post(url, data=(JSON.dumps(payload)), headers=headers)
-    print url, payload, headers
+    requests.post(url, data=(JSON.dumps(payload)), headers=headers)
 
-    if resp.status_code == 201:
-        return JSON.dumps({'message': 'GroupMe texted: "'+data['message']+'"'}), 200
-    else:
-        return JSON.dumps({'message': 'Error posting message to GroupMe'}), 501
+    app.LAST_TEXT = DT.datetime.today()
+    return JSON.dumps({'message': 'GroupMe texted: "'+data['message']+'"'}), 200
 
 
 @app.route('/')
