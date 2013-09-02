@@ -1,19 +1,22 @@
 
 from flask import Flask, make_response
+from os import environ
 import simplejson as JSON
 import requests
 
 app = Flask(__name__)
 app.debug = True
+GROUPME_TOKEN = environ('GROUPME_TOKEN')
+GROUPME_BOT_ID = environ('GROUPME_BOT_ID')
 
 
 @app.route('/be_quiet', methods=['POST'])
 def send_groupme():
     url = 'https://api.groupme.com/v3/bots/post'
     payload = {
-        'id' : 'XXXXXXXXX',
+        'bot_id' : GROUPME_BOT_ID,
         'text' : 'go the sleep',
-        'token' : 'YYYYYYY'
+        'token' : GROUPME_TOKEN
     }
     headers = {
         'Content-Type' : 'Application/json'
