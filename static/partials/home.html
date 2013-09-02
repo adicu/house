@@ -28,5 +28,11 @@
               <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>
+        <div class="alert alert-success" ng-show="successMessage">
+            {{successMessage}}
+        </div>
+        <div class="alert alert-danger" ng-show="errorMessage">
+            {{errorMessage}}
+        </div>
     </div>
 </div>
