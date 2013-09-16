@@ -1,0 +1,33 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  #1286be;
+
+$title-color:       #CCFFFC;
+$number-color:      #FFFFFF;
+
+$title-size: 120%;
+$number-size: 400%;
+
+// ----------------------------------------------------------------------------
+// Widget-text styles
+// ----------------------------------------------------------------------------
+.widget-foursquare {
+
+  background-color: $background-color;
+
+  .title {
+    color: $title-color;
+    font-size: $title-size;
+  }
+
+  .number {
+    color: $number-color;
+    font-size: $number-size;
+    font-weight: bold;
+  }
+
+  #foursquare_photo {
+    margin: 12px 0 0 0;
+  }
+}
