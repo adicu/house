@@ -9,7 +9,7 @@ checkins = 0
 
 index = 0
 
-VENUE_ID = '523da4d57e488671e3d84cc0'
+VENUE_ID = '521ed95711d227dca81a6504'
 BASE_URL = "https://api.foursquare.com/v2/venues/#{VENUE_ID}/"
 
 cnf = YAML::load_file(File.join(File.dirname(File.expand_path(__FILE__)), '../config.yml'))
