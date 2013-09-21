@@ -12,7 +12,7 @@ $light-color: rgba(255, 255, 255, 0.7);
 .widget-title {
   
     color: $light-color;
-    font-size: 15px;
+    font-size: 80px;
     text-align: left;
     text-transform: uppercase;
     position: absolute;
@@ -21,14 +21,14 @@ $light-color: rgba(255, 255, 255, 0.7);
 	img {
     	vertical-align: baseline;
     	margin-right: 5px;
-    	height: 16px;
+    	height: 100px;
 	}
 }
 
 .widget-forecast {
 
   background-color: $background-color;
-  padding-top: 15px !important;
+  padding-top: 5px !important;
 
   h1 {
     margin-bottom: 0px;
@@ -50,20 +50,20 @@ $light-color: rgba(255, 255, 255, 0.7);
   .temp {
     color: $full-color;
     text-align: left;
-    font-size: 45px;
+    font-size: 105px;
   }
 
   .summary {
     color: $full-color;
     text-align: left;
     vertical-align: middle;
-    font-size: 17px;
+    font-size: 18px;
   }
 
   .forecast-icon {
     float: left;
     text-align: left;
-    margin-right: 20px;
+    margin-right: 100px;
   }
 
   .more-info {
