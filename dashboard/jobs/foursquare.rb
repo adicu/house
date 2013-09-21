@@ -9,7 +9,7 @@ checkins = 0
 
 index = 0
 
-VENUE_ID = 'INSERT VENUE ID HERE'
+VENUE_ID = '523da4d57e488671e3d84cc0'
 BASE_URL = "https://api.foursquare.com/v2/venues/#{VENUE_ID}/"
 
 cnf = YAML::load_file(File.join(File.dirname(File.expand_path(__FILE__)), '../config.yml'))
@@ -17,7 +17,7 @@ CLIENT_ID = cnf['foursquare']['client_id']
 CLIENT_SECRET = cnf['foursquare']['client_secret']
 ACCESS_TOKEN = cnf['foursquare']['access_token']
 
-SCHEDULER.every '10m', :first_in => 0 do |job|
+SCHEDULER.every '2m', :first_in => 0 do |job|
 
   options = {:oauth_token => "#{ACCESS_TOKEN}", :v => "20130714"}
 
