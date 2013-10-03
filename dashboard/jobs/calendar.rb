@@ -36,7 +36,7 @@ SCHEDULER.every '10m', :first_in => 0 do |job|
 	end
 
 	events.sort! { |a,b| a[:when_start_raw] <=> b[:when_start_raw] }
-	events = events.slice!(0,15) # 15 elements is probably enough...
+	events = events.slice!(0,10) # 10 elements is probably enough...
 	
 	send_event('calendar_events', { events: events })
 end
