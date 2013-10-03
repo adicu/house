@@ -5,5 +5,6 @@ Dashboard
 + Foursquare
 + Weather
 + Calendar
++ Time (because someone broke our actual clock)
 
 Hosted on Heroku at http://adi-dashboard.herokuapp.com/dashboard.
