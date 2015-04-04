@@ -6,7 +6,7 @@ from PIL import Image
 from PIL import ImageDraw
 
 TMP = "/tmp/"
-font = ImageFont.truetype("fonts/FreeSans.ttf", 18)
+font = ImageFont.truetype("fonts/FreeSans.ttf", 16)
 
 
 def display_text(text):
@@ -27,7 +27,7 @@ def display_text(text):
 
 def display_image(fn):
     """Display the PPM file with filename `fn` to the screen."""
-    subprocess.call(['led-matrix', '-t', '10', '-D', '1', fn])
+    subprocess.call(['led-matrix', '-t', '10', '-D', '1', '-r', '16', fn])
 
 
 def create_image_from_text(filename, text):
@@ -47,13 +47,13 @@ def create_image_from_text(filename, text):
     width, _ = font.getsize(all_text)
     print("width: ", width)
 
-    im = Image.new("RGB", (width + 30, 32), "black")
+    im = Image.new("RGB", (width + 30, 16), "black")
     draw = ImageDraw.Draw(im)
 
     x = 0
     for string, color in text:
         print("t=" + string + " " + str(color) + " " + str(x))
-        draw.text((x, 5), string, color, font=font)
+        draw.text((x, 0), string, color, font=font)
         x = x + font.getsize(string)[0]
 
     im.save(filename)

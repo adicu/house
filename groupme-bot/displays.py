@@ -1,7 +1,7 @@
 import time
 import RPi.GPIO as GPIO
 
-from images import display_image, display_text
+from images import display_image
 
 delay = 0.000001
 
@@ -103,13 +103,11 @@ def jettfunc(text):
         refresh()
 
 
-def dan(text):
-    display_text(text)
-
-
 def rasmi(text):
     display_image('images/RAZZLE.ppm')
 
-functions = {}
-functions['Jett Andersen'] = jettfunc
-functions['Rasmi Elasmar'] = rasmi
+# GroupMe Name: function to run
+functions = {
+    'Jett Andersen': jettfunc,
+    'Rasmi Elasmar': rasmi,
+}
