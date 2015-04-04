@@ -103,7 +103,7 @@ def jettfunc(text):
         refresh()
 
 def evan(text):
-    display_image('images/evanface.ppm')
+    display_image('images/evanpenis.ppm')
 
 def rasmi(text):
     display_image('images/RAZZLE.ppm')
