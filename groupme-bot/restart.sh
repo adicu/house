@@ -1,3 +1,3 @@
 #!/bin/sh
 sudo killall python
-python app.py &
+sudo python app.py &
