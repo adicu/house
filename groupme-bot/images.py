@@ -47,13 +47,13 @@ def create_image_from_text(filename, text):
     width, _ = font.getsize(all_text)
     print("width: ", width)
 
-    im = Image.new("RGB", (width + 30, 16), "black")
+    im = Image.new("RGB", (width + 30, 32), "black")
     draw = ImageDraw.Draw(im)
 
     x = 0
     for string, color in text:
         print("t=" + string + " " + str(color) + " " + str(x))
-        draw.text((x, 0), string, color, font=font)
+        draw.text((x, 8), string, color, font=font)
         x = x + font.getsize(string)[0]
 
     im.save(filename)
