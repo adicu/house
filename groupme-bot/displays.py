@@ -1,6 +1,7 @@
-import RPi.GPIO as GPIO
-import subprocess
 import time
+import RPi.GPIO as GPIO
+
+from images import display_image, display_text
 
 delay = 0.000001
 
@@ -33,13 +34,16 @@ GPIO.setup(oe_pin, GPIO.OUT)
 
 screen = [[0 for x in xrange(32)] for x in xrange(16)]
 
+
 def clock():
     GPIO.output(clock_pin, 1)
     GPIO.output(clock_pin, 0)
 
+
 def latch():
     GPIO.output(latch_pin, 1)
     GPIO.output(latch_pin, 0)
+
 
 def bits_from_int(x):
     a_bit = x & 1
@@ -47,44 +51,41 @@ def bits_from_int(x):
     c_bit = x & 4
     return (a_bit, b_bit, c_bit)
 
+
 def set_row(row):
-    #time.sleep(delay)
     a_bit, b_bit, c_bit = bits_from_int(row)
     GPIO.output(a_pin, a_bit)
     GPIO.output(b_pin, b_bit)
     GPIO.output(c_pin, c_bit)
-    #time.sleep(delay)
+
 
 def set_color_top(color):
-    #time.sleep(delay)
     red, green, blue = bits_from_int(color)
     GPIO.output(red1_pin, red)
     GPIO.output(green1_pin, green)
     GPIO.output(blue1_pin, blue)
-    #time.sleep(delay)
+
 
 def set_color_bottom(color):
-    #time.sleep(delay)
     red, green, blue = bits_from_int(color)
     GPIO.output(red2_pin, red)
     GPIO.output(green2_pin, green)
     GPIO.output(blue2_pin, blue)
-    #time.sleep(delay)
+
 
 def refresh():
     for row in range(8):
         GPIO.output(oe_pin, 1)
         set_color_top(0)
         set_row(row)
-        #time.sleep(delay)
         for col in range(32):
             set_color_top(screen[row][col])
-            set_color_bottom(screen[row+8][col])
+            set_color_bottom(screen[row + 8][col])
             clock()
-        #GPIO.output(oe_pin, 0)
         latch()
         GPIO.output(oe_pin, 0)
         time.sleep(delay)
+
 
 def fill_rectangle(x1, y1, x2, y2, color):
     for x in range(x1, x2):
@@ -95,16 +96,19 @@ def fill_rectangle(x1, y1, x2, y2, color):
 def set_pixel(x, y, color):
     screen[y][x] = color
 
-def display_image(filename):
-    subprocess.call(['led-matrix','-t', '10', '-D', '1', 'images/'+filename])
 
 def jettfunc(text):
     for i in range(50):
         fill_rectangle(0, 0, 32, 16, i % 8)
         refresh()
 
+
+def dan(text):
+    display_text(text)
+
+
 def rasmi(text):
-    display_image('RAZZLE.ppm')
+    display_image('images/RAZZLE.ppm')
 
 functions = {}
 functions['Jett Andersen'] = jettfunc
