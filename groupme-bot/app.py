@@ -2,8 +2,10 @@ from flask import Flask, Response, request
 from displays import functions
 from images import display_text
 import json
+from sys import argv
 
 app = Flask(__name__)
+debug = len(argv) > 0 and argv[0] == 'debug'
 
 
 @app.route('/', methods=['POST'])
@@ -29,4 +31,4 @@ def display_text_message(name, text):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=debug)
