@@ -112,4 +112,5 @@ def rasmi(text):
 functions = {
     'Jett Andersen': jettfunc,
     'Rasmi Elasmar': rasmi,
+    'Evan Tarrh': evan,
 }
