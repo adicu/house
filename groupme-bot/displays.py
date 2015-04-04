@@ -95,8 +95,7 @@ def fill_rectangle(x1, y1, x2, y2, color):
 def set_pixel(x, y, color):
     screen[y][x] = color
 
-def display_ppm(filename):
-    print "This is called"
+def display_image(filename):
     subprocess.call(['led-matrix','-t', '10', '-D', '1', 'images/'+filename])
 
 def jettfunc(text):
@@ -105,7 +104,7 @@ def jettfunc(text):
         refresh()
 
 def rasmi(text):
-    display_ppm('runtext.ppm')
+    display_image('runtext.ppm')
 
 functions = {}
 functions['Jett Andersen'] = jettfunc
