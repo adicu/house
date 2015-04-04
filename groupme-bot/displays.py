@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import subprocess
 import time
 
 delay = 0.000001
@@ -94,10 +95,17 @@ def fill_rectangle(x1, y1, x2, y2, color):
 def set_pixel(x, y, color):
     screen[y][x] = color
 
+def display_ppm(filename):
+    subprocess.call(['led-matrix','-t 10', '-D 1', filename])
+
 def jettfunc(text):
     for i in range(2000)
         fill_rectangle(0, 0, 32, 16, i % 8)
         refresh()
 
+def rasmi(text):
+    display_ppm('runtext.ppm')
+
 functions = []
 functions['Jett Andersen'] = jettfunc
+functions['Rasmi Elasmar'] = rasmi
