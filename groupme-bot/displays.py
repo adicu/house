@@ -95,10 +95,8 @@ def set_pixel(x, y, color):
     screen[y][x] = color
 
 def jettfunc(text):
-    for _ in range(200)
-        fill_rectangle(0, 0, 32, 16, 0)
-        refresh()
-        fill_rectangle(0, 0, 32, 16, 1)
+    for i in range(2000)
+        fill_rectangle(0, 0, 32, 16, i % 8)
         refresh()
 
 functions = []
