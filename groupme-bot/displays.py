@@ -104,7 +104,7 @@ def jettfunc(text):
         refresh()
 
 def rasmi(text):
-    display_image('runtext.ppm')
+    display_image('RAZZLE.ppm')
 
 functions = {}
 functions['Jett Andersen'] = jettfunc
