@@ -96,7 +96,8 @@ def set_pixel(x, y, color):
     screen[y][x] = color
 
 def display_ppm(filename):
-    subprocess.call(['led-matrix','-t 10', '-D 1', filename])
+    print "This is called"
+    subprocess.call(['led-matrix','-t', '10', '-D', '1', filename])
 
 def jettfunc(text):
     for i in range(50):

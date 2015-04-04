@@ -13,10 +13,7 @@ def handle_message():
 
     print("seen")
 
-    try:
-        functions[name](text)
-    except:
-        pass
+    functions[name](text)
 
     return Response(status=200)    
 
