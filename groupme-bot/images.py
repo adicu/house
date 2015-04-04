@@ -19,10 +19,10 @@ def display_text(text):
         display_text([("ADI ", (255, 0, 0)), ("House", (0, 0, 255))])
 
     """
-    filename = "tmp%s.ppm" % randint(10000, 99999)
+    filename = TMP + "tmp%s.ppm" % randint(10000, 99999)
     create_image_from_text(filename, text)
-    display_image(TMP + filename)  # synchronous
-    os.remove(TMP + filename)
+    display_image(filename)  # synchronous
+    os.remove(filename)
 
 
 def display_image(fn):
