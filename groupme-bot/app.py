@@ -11,8 +11,6 @@ def handle_message():
     text =  data['text']
     name = data['name']
 
-    print("seen")
-
     functions[name](text)
 
     return Response(status=200)    
