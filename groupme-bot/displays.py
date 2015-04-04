@@ -102,6 +102,8 @@ def jettfunc(text):
         fill_rectangle(0, 0, 32, 16, i % 8)
         refresh()
 
+def evan(text):
+    display_image('images/evanface.ppm')
 
 def rasmi(text):
     display_image('images/RAZZLE.ppm')
