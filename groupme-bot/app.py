@@ -5,7 +5,7 @@ import json
 from sys import argv
 
 app = Flask(__name__)
-debug = len(argv) > 0 and argv[0] == 'debug'
+debug = len(argv) > 1 and argv[1] == 'debug'
 
 
 @app.route('/', methods=['POST'])

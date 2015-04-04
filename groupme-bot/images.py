@@ -6,7 +6,7 @@ from PIL import Image
 from PIL import ImageDraw
 
 TMP = "/tmp/"
-font = ImageFont.truetype("fonts/FreeSans.ttf", 16)
+font = ImageFont.truetype("fonts/FreeSans.ttf", 18)
 
 
 def display_text(text):
@@ -53,7 +53,7 @@ def create_image_from_text(filename, text):
     x = 0
     for string, color in text:
         print("t=" + string + " " + str(color) + " " + str(x))
-        draw.text((x, 8), string, color, font=font)
+        draw.text((x, 5), string, color, font=font)
         x = x + font.getsize(string)[0]
 
     im.save(filename)
