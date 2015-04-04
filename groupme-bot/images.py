@@ -6,6 +6,7 @@ from PIL import Image
 from PIL import ImageDraw
 
 TMP = "/tmp/"
+OFFSET = -2 # vertically centers the text on the display
 font = ImageFont.truetype("fonts/FreeSans.ttf", 16)
 
 
@@ -53,7 +54,7 @@ def create_image_from_text(filename, text):
     x = 0
     for string, color in text:
         print("t=" + string + " " + str(color) + " " + str(x))
-        draw.text((x, 0), string, color, font=font)
+        draw.text((x, OFFSET), string, color, font=font)
         x = x + font.getsize(string)[0]
 
     im.save(filename)
