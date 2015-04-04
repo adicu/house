@@ -15,10 +15,12 @@ def handle_message():
     text = data['text']
     name = data['name']
 
+    # Run custom functions, if any exist
     if name in functions:
         functions[name](text)
 
-    display_text_message(name, text)
+    # Display: "FirstName: Message"
+    display_text_message(name.split()[0], text)
 
     return Response(status=200)
 
