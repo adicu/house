@@ -1,31 +1,22 @@
-from flask import Flask, request
-import requests
+from flask import Flask, Response, request
+from display import functions
+import json
 
 app = Flask(__name__)
 
-def handshake():
-    data = {
-        'channel':'/meta/handshake',
-        'version':'1.0',
-        'supportedConnectionTypes':['long-polling'],
-        'id':'1'
-    }
-    r = requests.post('https://push.groupme.com/faye', data=data)
-
-    if r.status_code == requests.codes.ok:
-        return r.content
-
 @app.route('/', methods=['POST'])
 def handle_message():
-    text = request.form['text']
-    sender = request.form['sender']
+    data = json.loads(request.data)
 
-    display_message(sender, text)
+    text =  data['text']
+    name = data['name']
 
-    pass
+    try:
+        functions[name](text)
+    except:
+        pass
 
-def display_message(sender, text):
-    pass
+    return Response(status=200)    
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
