@@ -95,9 +95,9 @@ def set_pixel(x, y, color):
     screen[y][x] = color
 
 def jettfunc(text):
-    for i in range(2000)
+    for i in range(50):
         fill_rectangle(0, 0, 32, 16, i % 8)
         refresh()
 
-functions = []
+functions = {}
 functions['Jett Andersen'] = jettfunc

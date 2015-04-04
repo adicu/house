@@ -1,5 +1,5 @@
 from flask import Flask, Response, request
-from display import functions
+from displays import functions
 import json
 
 app = Flask(__name__)
@@ -10,6 +10,8 @@ def handle_message():
 
     text =  data['text']
     name = data['name']
+
+    print("seen")
 
     try:
         functions[name](text)
