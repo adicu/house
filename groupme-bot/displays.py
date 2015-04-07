@@ -103,10 +103,10 @@ def jettfunc(text):
         refresh()
 
 def evan(text):
-    display_image('images/evanpenis.ppm')
+    display_image('images/evanface.ppm')
 
 def rasmi(text):
-    display_image('images/RAZZLE.ppm')
+    display_image('images/hammersickle.ppm')
 
 # GroupMe Name: function to run
 functions = {
