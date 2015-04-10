@@ -1,9 +1,7 @@
 import os
 import subprocess
 from random import randint
-from PIL import ImageFont
-from PIL import Image
-from PIL import ImageDraw
+from PIL import Image, ImageFont, ImageDraw
 
 TMP = "/tmp/"
 OFFSET = -2  # vertically centers the text on the display
@@ -28,7 +26,10 @@ def display_text(text):
 
 def display_image(fn):
     """Display the PPM file with filename `fn` to the screen."""
-    subprocess.call(['led-matrix', '-t', '10', '-D', '1', '-r', '16', fn])
+    if 'ppm' in fn:
+        subprocess.call(['led-matrix', '-t', '10', '-D', '1', '-r', '16', fn])
+    else:
+        subprocess.call(['led-image-viewer', '-t', '10', '-r', '16', fn])
 
 
 def create_image_from_text(filename, text):
