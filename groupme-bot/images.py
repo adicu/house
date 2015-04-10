@@ -1,4 +1,5 @@
 import os
+import time
 import subprocess
 from random import randint
 from PIL import Image, ImageFont, ImageDraw
@@ -29,7 +30,10 @@ def display_image(fn):
     if 'ppm' in fn:
         subprocess.call(['led-matrix', '-t', '10', '-D', '1', '-r', '16', fn])
     else:
-        subprocess.call(['led-image-viewer', '-t', '10', '-r', '16', fn])
+        p = subprocess.call(['led-image-viewer', '-r', '16', fn])
+        time.sleep(10)
+        process.terminate()
+
 
 
 def create_image_from_text(filename, text):
