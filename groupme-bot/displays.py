@@ -106,7 +106,7 @@ def evan(text):
     display_image('images/evanface.ppm')
 
 def rasmi(text):
-    display_image('images/hammersickle.ppm')
+    display_image('images/cat.gif')
 
 # GroupMe Name: function to run
 functions = {
